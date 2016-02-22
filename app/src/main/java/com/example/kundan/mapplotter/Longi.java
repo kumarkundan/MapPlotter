@@ -1,6 +1,7 @@
 package com.example.kundan.mapplotter;
 /**
  * Created by kundan on 9/30/2015.
+ * This class is for serealization purpose using google's gson
  */
 public class Longi {
 
