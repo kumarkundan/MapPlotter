@@ -1,5 +1,11 @@
 package com.example.kundan.mapplotter;
-
+/*
+*This class is for following purpose: 
+*1.loading map
+*2.sending data to server
+*3.getting data from server
+*4.setting recieved data to shared preference
+*/
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -135,10 +141,10 @@ public class MapPlotter extends AppCompatActivity implements
         }
 
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(30000); //5 seconds
-        // mLocationRequest.setFastestInterval(3000); //3 seconds
+        
+        // i am setting the interval of sending data to 30 seconds can be increased or decreased
+        mLocationRequest.setInterval(30000); //30 seconds
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-        //mLocationRequest.setSmallestDisplacement(0.1F); //1/10 meter
 
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
 
@@ -176,7 +182,7 @@ public class MapPlotter extends AppCompatActivity implements
         longitude= String.valueOf(location.getLongitude());
         latitude= String.valueOf(location.getLatitude());
 
-      //  addItem(item);
+        addItem(item); //Data insertion to azure portal
 
         Toast.makeText(this, ""+location.getLatitude()+",,"+location.getLongitude() , Toast.LENGTH_SHORT).show();
 
@@ -262,12 +268,16 @@ public class MapPlotter extends AppCompatActivity implements
             @Override
             protected Void doInBackground(Void... params) {
                 try {
+                        
+                //getting only current top 5 rows from azure database
+                //can be increased or decreased
+                
                     final MobileServiceList<Longi> result =
                             mProfileTable.top(5).execute().get();
 
                     int i=0;
                     for (Longi item : result) {
-                        // Log.i(TAG, "Read object with ID " + item.id);
+                        //getting longitude and latitude from azure portal
 
                         alatitude[i] = item.getLatitude();
                         alongitude[i] = item.getLongitude();
@@ -284,8 +294,13 @@ public class MapPlotter extends AppCompatActivity implements
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
+                
+                //setting Data to shared preference
 
                 SharedPreferences.Editor editor = getSharedPreferences("My location pref", MODE_PRIVATE).edit();
+                
+                //clearing previously saved data
+                
                 editor.clear();
                 editor.putString("1st long",alongitude[0] );
                 editor.putString("1st lat", alatitude[0]);
