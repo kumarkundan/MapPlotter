@@ -48,6 +48,3 @@ Future proposed changes :-
         --->Adding markers to locations
         
 Screenshots :-
-
-      ![alt tag]([url=http://postimage.org/][img]http://s13.postimg.org/tv2fpxf3r/Screenshot_2016_02_21_23_53_21_com_example_kunda.png[/img][/url]
-[url=http://postimage.org/]image hoster[/url]/to/img.png)
