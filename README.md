@@ -1,4 +1,7 @@
 "# MapPlotter" 
+
+
+
 ANDROID APPLICATION:
 functionalites:-
   --->get current location every 30 seconds( can be increased or decreased).
@@ -32,7 +35,7 @@ Following are the java classes:
 
         This class is for serealization purpose using google's gson
         
-Future changes :-
+Future proposed changes :-
 
         --->Using this application as service
         --->GUI improvements 
