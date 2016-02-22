@@ -2,6 +2,7 @@ package com.example.kundan.mapplotter;
 
 /**
  * Created by kundan on 2/18/2016.
+ * This class is for plotting the path using latlong objects returned from azure database
  */
 
 import android.content.SharedPreferences;
@@ -28,6 +29,8 @@ public class LocationSender extends FragmentActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_plotter);
+        
+        //getting latitude and longitude from shared preference 
 
         SharedPreferences prefs = getSharedPreferences("My location pref", MODE_PRIVATE);
         String restoredText = prefs.getString("1st long", null);// "" in place of null
@@ -45,6 +48,8 @@ public class LocationSender extends FragmentActivity{
             la5 = Double.parseDouble(prefs.getString("5st lat", ""));
 
         }
+        
+        //creating lat log objects
 
         LatLng l1 = new LatLng(la1, ln1);
         LatLng l2 = new LatLng(la2, ln2);
