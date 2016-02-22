@@ -3,10 +3,16 @@
 
 
 ANDROID APPLICATION:
+
+
 functionalites:-
+
   --->get current location every 30 seconds( can be increased or decreased).
+  
   --->sending location to azure portal every 30 seconds ( can be increased or decreased).
+  
   --->getting lat , long from azure database.
+  
   --->plotting it to google map.
   
   
