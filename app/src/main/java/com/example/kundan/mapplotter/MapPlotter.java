@@ -67,7 +67,7 @@ public class MapPlotter extends AppCompatActivity implements
         plotbn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(MapPlotter.this, LocationSender.class);
+                Intent in = new Intent(MapPlotter.this, LocationPlotter.class);
                 startActivity(in);
             }
         });
