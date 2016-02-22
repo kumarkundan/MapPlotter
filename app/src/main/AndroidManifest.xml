@@ -61,10 +61,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LocationSender"
+            android:name=".LocationPlotterr"
             android:label="@string/title_activity_map_plotter">
             <intent-filter>
-                <action android:name="com.example.kundan.mapplotter.LocationSender" />
+                <action android:name="com.example.kundan.mapplotter.LocationPlotter" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
